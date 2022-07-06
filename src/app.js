@@ -4,32 +4,39 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
-function random() {
-  let card = math.floor(math.random() * 14);
-  let num = 0;
-  if (card >= 11) {
-    switch (card) {
-      case 11:
-        return (num = J);
-        break;
-      case 12:
-        return (num = Q);
-        break;
-      case 13:
-        return (num = K);
-        break;
-      case 14:
-        return (num = A);
-        break;
-    }
-  } else return num;
+
+function RNumber() {
+  let Reyes = ["J", "Q", "K", "A"];
+  let card = Math.floor(Math.random() * 14);
+  let num = 1;
+  if (card <= 10) {
+    return num;
+  } else {
+    let f = card - 10;
+    return (num = Reyes[f]);
+  }
 }
-function generadorcard() {
-  let card = null;
-  return card;
+
+function AsigNumber() {
+  let ANumb = document.querySelector("#Number");
+  ANumb.innerHTML = RNumber();
+}
+
+function generadorCard() {
+  AsigNumber();
+  let SimbTop = document.querySelector("#SimbTop");
+  let SimbBotom = document.querySelector("#SimbBottom");
+  let Simb = ["♠", " ♥", " ♣", " ♦️"];
+  let x = Math.floor(Math.random() * 4);
+  console.log(x);
+  SimbTop.innerHTML = SimbBottom.innerHTML = Simb[x];
 }
 
 window.onload = function() {
   //write your code here
-  console.log("Hello Rigo from the console!");
+  console.log(Math.floor(Math.random() * 14));
+  generadorCard();
+  AsigNumber();
+  let BRecarga = document.querySelector("button");
+  BRecarga.addEventListener("click", generadorCard);
 };
