@@ -8,12 +8,12 @@ import "./assets/img/4geeks.ico";
 function RNumber() {
   let Reyes = ["J", "Q", "K", "A"];
   let card = Math.floor(Math.random() * 14);
-  let num = 1;
   if (card <= 10) {
-    return num;
+    if (card == 0) return (card = 1);
+    return (card = card);
   } else {
-    let f = card - 10;
-    return (num = Reyes[f]);
+    let num = card - 10;
+    return (num = Reyes[num]);
   }
 }
 
@@ -35,8 +35,8 @@ function generadorCard() {
 window.onload = function() {
   //write your code here
   console.log(Math.floor(Math.random() * 14));
-  generadorCard();
-  AsigNumber();
+  //generadorCard();
+  //AsigNumber();
   let BRecarga = document.querySelector("button");
   BRecarga.addEventListener("click", generadorCard);
 };
